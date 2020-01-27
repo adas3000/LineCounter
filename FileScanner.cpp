@@ -21,9 +21,21 @@ void FileScanner::doFindFiles(std::string path) {
 			doFindFiles(entry.path().string());
 		}
 		else {
+			if(fileShouldBeAdded(path))
 			file_List.push_back(entry.path().string());
 		}
 
 	}
 
+}
+
+bool FileScanner::fileShouldBeAdded(std::string f_path) {
+
+	std::string	comma = f_path.substr(f_path.find_last_of('.'));
+
+	for (auto i : fileTypes) {
+		if (comma == i) return true;
+	}
+
+	return false;
 }

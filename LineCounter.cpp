@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include "FileScanner.h"
+#include "FileChecker.h"
 
 int main()
 {
@@ -17,6 +18,7 @@ int main()
 	for (auto& str : fileList) {
 		std::cout << str << "\n";
 	}
+
 
 
 

@@ -7,7 +7,7 @@
 class FileScanner
 {
 public:
-	enum FileTypes{java,cpp,c,kt,h};
+	std::string fileTypes[5] = { ".kt",".java",".cpp",".c",".h" };
 private:
 	bool directoryOk;
 	std::string path;
@@ -18,5 +18,6 @@ public:
 	inline bool getDirectoryOk() { return directoryOk; }
 	inline std::vector<std::string> getFile_List() { return file_List; }
 private:
+	bool fileShouldBeAdded(std::string f_path);
 	void doFindFiles(std::string path);
 };
