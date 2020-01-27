@@ -21,8 +21,9 @@ void FileScanner::doFindFiles(std::string path) {
 			doFindFiles(entry.path().string());
 		}
 		else {
-			if(fileShouldBeAdded(path))
+			if(fileShouldBeAdded(entry.path().string())){
 			file_List.push_back(entry.path().string());
+			}
 		}
 
 	}
@@ -31,7 +32,10 @@ void FileScanner::doFindFiles(std::string path) {
 
 bool FileScanner::fileShouldBeAdded(std::string f_path) {
 
-	std::string	comma = f_path.substr(f_path.find_last_of('.'));
+	int find = f_path.find_last_of('.');
+	if (find == std::string::npos) return false;
+
+	std::string	comma = f_path.substr(find); 
 
 	for (auto i : fileTypes) {
 		if (comma == i) return true;

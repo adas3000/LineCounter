@@ -8,6 +8,7 @@ FileChecker::FileChecker(std::string path)
 		throw "No Such Directory";
 	}
 	files = fileScanner.getFile_List();
+	doFileCheck();
 }
 
 FileChecker::~FileChecker()
@@ -15,16 +16,15 @@ FileChecker::~FileChecker()
 }
 
 void FileChecker::doFileCheck() {
-
+	
 	std::fstream fileOpener;
-
+	std::string line;
 	for (auto& path : files) {
-		
 		fileOpener.open(path, std::fstream::in);
 		if (!fileOpener.is_open()) {
 			throw "Cannot open file";
 		}
-		std::string line;
+		
 		while (!fileOpener.eof()) {
 			std::getline(fileOpener, line);
 			totalLineCount++;
