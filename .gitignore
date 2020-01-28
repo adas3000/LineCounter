@@ -3,3 +3,4 @@ LineCounter.sln
 LineCounter.vcxproj
 LineCounter.vcxproj.filters
 LineCounter.vcxproj.user
+Debug/
